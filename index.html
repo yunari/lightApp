@@ -30,11 +30,11 @@
 				
                 <img src="res/home.png" width="340" height="300">
                 </div>
-				<div id="bedRoom1" style="position: absolute; top:160px; left:85px; width:200px; height:25px"><img src="res/bulb_on.png"></div>
-				<div id="bedRoom2" style="position: absolute; top:130px; left:220px; width:200px; height:25px"><img src="res/bulb_on.png"></div>
-				<div id="bedRoom3" style="position: absolute; top:310px; left:220px; width:200px; height:25px"><img src="res/bulb_on.png"></div>
-				<div id="livingRoom" style="position: absolute; top:280px; left:100px; width:200px; height:25px"><img src="res/bulb_on.png"></div>
-				<div id="kitchen" style="position: absolute; top:220px; left:205px; width:200px; height:25px"><img src="res/bulb_on.png"></div>
+				<img src="res/bulb_on.png" id="bedRoom1" style="position: absolute; top:180px; left:75px;" onclick="changeBedRoom1()">
+				<img src="res/bulb_on.png" id="bedRoom2" style="position: absolute; top:170px; left:225px;" onclick="changeBedRoom2()">
+				<img src="res/bulb_on.png" id="bedRoom3" style="position: absolute; top:360px; left:223px;" onclick="changeBedRoom3()">
+				<img src="res/bulb_on.png" id="livingRoom" style="position: absolute; top:310px; left:95px;" onclick="changeLivingRoom()">
+				<img src="res/bulb_on.png" id="kitchen" style="position: absolute; top:260px; left:205px;" onclick="changeKitchen()">
             </div>
         </div>
 
@@ -49,5 +49,69 @@
         </div>
     </div>
 
+	
+<script type="text/javascript">
+	function changeBedRoom1(){
+if (document.getElementById("bedRoom1").src.indexOf('bulb_on.png')!=-1)
+        {
+        document.getElementById("bedRoom1").src = "res/bulb_off.png";
+		}
+		else
+		{
+		document.getElementById("bedRoom1").src = "res/bulb_on.png";
+		}
+      }
+	  
+	  function changeBedRoom2(){
+if (document.getElementById("bedRoom2").src.indexOf('bulb_on.png')!=-1)
+        {
+        document.getElementById("bedRoom2").src = "res/bulb_off.png";
+		}
+		else
+		{
+		document.getElementById("bedRoom2").src = "res/bulb_on.png";
+		}
+      }
+	  
+	  function changeBedRoom3(){
+if (document.getElementById("bedRoom3").src.indexOf('bulb_on.png')!=-1)
+        {
+        document.getElementById("bedRoom3").src = "res/bulb_off.png";
+		}
+		else
+		{
+		document.getElementById("bedRoom3").src = "res/bulb_on.png";
+		}
+      }
+	  
+	  function changeLivingRoom(){
+if (document.getElementById("livingRoom").src.indexOf('bulb_on.png')!=-1)
+        {
+        document.getElementById("livingRoom").src = "res/bulb_off.png";
+		}
+		else
+		{
+		document.getElementById("livingRoom").src = "res/bulb_on.png";
+		}
+      }
+	  
+	  function changeKitchen(){
+if (document.getElementById("kitchen").src.indexOf('bulb_on.png')!=-1)
+        {
+        document.getElementById("kitchen").src = "res/bulb_off.png";
+		}
+		else
+		{
+		document.getElementById("kitchen").src = "res/bulb_on.png";
+		}
+      }
+</script>
 </body>
+
+
+<!--
+ $("#bedRoom1").click(function(){
+	$("#bedRoom1").html("<div id="bedRoom1" style="position: absolute; top:160px; left:85px; width:200px; height:25px"><img src="res/bulb_off.png"></div>");
+	});
+}); -->
 </html>

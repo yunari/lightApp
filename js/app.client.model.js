@@ -134,7 +134,6 @@ function ClientModel(parent) {
          */
         sendPing: function ClientModel_sendPing(name, socket) {
             var sendTextMsg, messageObj, messageObjToString, i, len;
-			var temp = "test"; //추가
             sendTextMsg = [];
             messageObj = {
                 name: encodeURIComponent(name),
@@ -150,7 +149,7 @@ function ClientModel(parent) {
             }
             try {
                 if (socket !== null && socket.state === 'OPEN') {
-                    socket.writeData(temp); //sendTextMsg
+                    socket.writeData(sendTextMsg);
                 }
             } catch (error) {
                 console.error('sendPing: ' + error.message);
@@ -171,7 +170,6 @@ function ClientModel(parent) {
             callback
         ) {
             var sendTextMsg = [], messageObj, messageObjToString, i, len;
-			var temp = "test"; //여기 추가함
             name = encodeURIComponent(name);
             message = encodeURIComponent(message);
             messageObj = {name: name, text: message, ping: false, bye: false};
@@ -182,7 +180,7 @@ function ClientModel(parent) {
             }
             try {
                 if (socket !== null && socket.state === 'OPEN') {
-                    socket.writeData(temp); //원래는 socket.writeData(sendTextMsg);
+                    socket.writeData(sendTextMsg);
                     callback(message);
                 }
             } catch (error) {

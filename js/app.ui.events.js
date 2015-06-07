@@ -236,7 +236,8 @@ function UiEvents(parent) {
 
             $('#ui-mySend').on('click', function onMySendClick(event) {
                 event.stopPropagation();
-                var message = $('#text').val();
+                //var message = $('#text').val();
+				var message = 'text';
                 if (message.length === 0) {
                     return;
                 }
