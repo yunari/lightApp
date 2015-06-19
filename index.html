@@ -15,7 +15,6 @@
     <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
-
     <div id="start" data-role="page">
 
         <div id="start-header" data-role="header" data-position="fixed">
@@ -26,17 +25,19 @@
             <div class="box">
 				<div data-role="button" class="ui-btn-start" id="turnOnButton" style="display: none;">Turn bluetooth on</div>
                 <div data-role="button" class="ui-btn-start" id="clientButton" style="display: none;">Join server</div>
-				
-				
-                <img src="res/home.png" width="340" height="300">
-                </div>
+				</div>
+            </div>
+        </div>
+		
+		
+		<div id="light" data-role="page">
+		<img src="res/home.png" width="340" height="300" style="position: absolute; top:150px; left:10px;">
 				<img src="res/bulb_on.png" id="bedRoom1" style="position: absolute; top:180px; left:75px;" onclick="changeBedRoom1()">
 				<img src="res/bulb_on.png" id="bedRoom2" style="position: absolute; top:170px; left:225px;" onclick="changeBedRoom2()">
 				<img src="res/bulb_on.png" id="bedRoom3" style="position: absolute; top:360px; left:223px;" onclick="changeBedRoom3()">
 				<img src="res/bulb_on.png" id="livingRoom" style="position: absolute; top:310px; left:95px;" onclick="changeLivingRoom()">
 				<img src="res/bulb_on.png" id="kitchen" style="position: absolute; top:260px; left:205px;" onclick="changeKitchen()">
-            </div>
-        </div>
+		</div>
 
     </div>
 

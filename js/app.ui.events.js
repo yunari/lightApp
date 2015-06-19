@@ -234,10 +234,19 @@ function UiEvents(parent) {
                 );
             });
 
-            $('#ui-mySend').on('click', function onMySendClick(event) {
+            $('#bedRoom1').on('click', function onMySendClick(event) {
                 event.stopPropagation();
-                //var message = $('#text').val();
-				var message = 'text';
+				var message = '';
+				
+				if (document.getElementById("bedRoom1").src.indexOf('bulb_on.png')!=-1)
+					{
+						message = '침실1의 불이 켜졌습니다.';
+					}
+				else
+					{
+						message = '침실1의 불이 꺼졌습니다.';
+					}
+					
                 if (message.length === 0) {
                     return;
                 }
@@ -245,6 +254,101 @@ function UiEvents(parent) {
                 self.ui.disableSendButton();
                 app.sendMessage(message);
             });
+			
+			$('#bedRoom2').on('click', function onMySendClick(event) {
+                event.stopPropagation();
+				var message = '';
+				
+				if (document.getElementById("bedRoom2").src.indexOf('bulb_on.png')!=-1)
+					{
+						message = '침실2의 불이 켜졌습니다.';
+					}
+				else
+					{
+						message = '침실2의 불이 꺼졌습니다.';
+					}
+					
+                if (message.length === 0) {
+                    return;
+                }
+                $('#text').val('');
+                self.ui.disableSendButton();
+                app.sendMessage(message);
+            });
+			
+			$('#bedRoom3').on('click', function onMySendClick(event) {
+                event.stopPropagation();
+				var message = '';
+				
+				if (document.getElementById("bedRoom3").src.indexOf('bulb_on.png')!=-1)
+					{
+						message = '침실3의 불이 켜졌습니다.';
+					}
+				else
+					{
+						message = '침실3의 불이 꺼졌습니다.';
+					}
+					
+                if (message.length === 0) {
+                    return;
+                }
+                $('#text').val('');
+                self.ui.disableSendButton();
+                app.sendMessage(message);
+            });
+			
+			$('#livingRoom').on('click', function onMySendClick(event) {
+                event.stopPropagation();
+				var message = '';
+				
+				if (document.getElementById("livingRoom").src.indexOf('bulb_on.png')!=-1)
+					{
+						message = '거실의 불이 켜졌습니다.';
+					}
+				else
+					{
+						message = '거실의 불이 꺼졌습니다.';
+					}
+					
+                if (message.length === 0) {
+                    return;
+                }
+                $('#text').val('');
+                self.ui.disableSendButton();
+                app.sendMessage(message);
+            });
+			
+			$('#kitchen').on('click', function onMySendClick(event) {
+                event.stopPropagation();
+				var message = '';
+				
+				if (document.getElementById("kitchen").src.indexOf('bulb_on.png')!=-1)
+					{
+						message = '부엌의 불이 켜졌습니다.';
+					}
+				else
+					{
+						message = '부엌의 불이 꺼졌습니다.';
+					}
+					
+                if (message.length === 0) {
+                    return;
+                }
+                $('#text').val('');
+                self.ui.disableSendButton();
+                app.sendMessage(message);
+            });
+			
+			$('#ui-mySend').on('click', function onMySendClick(event) {
+                event.stopPropagation();
+                var message = $('#text').val();
+                if (message.length === 0) {
+                    return;
+                }
+                $('#text').val('');
+                self.ui.disableSendButton();
+                app.sendMessage(message);
+            }); //쓸모없어짐
 
             $('body').on('click', '#byeOK', function onByeOkClick() {
                 self.ui.hideByePopup();

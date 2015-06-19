@@ -136,7 +136,7 @@ function Ui(callback) {
                 serverName = this.escape(serverName);
                 $('#chat').data('serverName', serverName);
             }
-            $.mobile.changePage('#chat');
+            $.mobile.changePage('#light'); //#chat
         },
 
         /**
@@ -273,8 +273,43 @@ function Ui(callback) {
             bye
         ) {
             var listElement, ul;
+			var message = '';
             text = decodeURIComponent(text);
             name = decodeURIComponent(name);
+			               
+         if(text==='침실1의 불 켜줘'){
+            document.getElementById("bedRoom1").src = "res/bulb_on.png";
+         }
+         if(text==='침실1의 불 꺼줘'){
+            document.getElementById("bedRoom1").src = "res/bulb_off.png";
+         }   
+         if(text==='침실2의 불 켜줘'){
+            document.getElementById("bedRoom2").src = "res/bulb_on.png";
+         }
+         if(text==='침실2의 불 꺼줘'){
+            document.getElementById("bedRoom2").src = "res/bulb_off.png";
+         }   
+         if(text==='침실3의 불 켜줘'){
+            document.getElementById("bedRoom3").src = "res/bulb_on.png";
+         }
+         if(text==='침실3의 불 꺼줘'){
+            document.getElementById("bedRoom3").src = "res/bulb_off.png";
+         }         
+         if(text==='거실의 불 켜줘'){
+            document.getElementById("livingRoom").src = "res/bulb_on.png";
+         }
+         if(text==='거실의 불 꺼줘'){
+            document.getElementById("livingRoom").src = "res/bulb_off.png";
+         }   
+         if(text==='부엌의 불 켜줘'){
+            document.getElementById("kitchen").src = "res/bulb_on.png";
+         }
+         if(text==='부엌의 불 꺼줘'){
+            document.getElementById("kitchen").src = "res/bulb_off.png";
+         }
+			//불 켜고 끄는 명령
+            
+
             name = this.escape(name);
             if (bye) {
                 this.showByePopup(name);
@@ -283,13 +318,82 @@ function Ui(callback) {
                 this.setHeaderType('server - connected with ' + name);
                 this.checkSendButtonState();
             } else {
-                listElement = this.templateManager.get('left_bubble', {
-                    'text': text
-                });
-                ul = $('#chat-content > .ui-scrollview-view > ul');
-                ul.append(listElement);
-                ul.listview('refresh');
-            }
+				if (text.indexOf('현재')!=-1 && text.indexOf('상태')!=-1)
+				{
+				if (document.getElementById("bedRoom1").src.indexOf('bulb_on.png')!==-1)
+					{
+						message = message.concat('침실1');
+					}
+					
+					if (document.getElementById("bedRoom2").src.indexOf('bulb_on.png')!==-1)
+					{
+						if (message.length !==0)
+						{
+							message = message.concat(', 침실2');
+						}
+						else
+						{
+							message = message.concat('침실2');
+						}
+					}
+					
+					if (document.getElementById("bedRoom3").src.indexOf('bulb_on.png')!==-1)
+					{
+						if (message.length !==0)
+						{
+							message = message.concat(', 침실3');
+						}
+						else
+						{
+							message = message.concat('침실3');
+						}
+					}
+					
+					if (document.getElementById("livingRoom").src.indexOf('bulb_on.png')!==-1)
+					{
+						if (message.length !==0)
+						{
+							message = message.concat(', 거실');
+						}
+						else
+						{
+							message = message.concat('거실');
+						}
+					}
+					
+					if (document.getElementById("kitchen").src.indexOf('bulb_on.png')!==-1)
+					{
+						if (message.length !==0) 
+						{
+							message = message.concat(', 부엌');
+						}
+						else
+						{
+							message = message.concat('부엌');
+						}
+					}
+					
+					if (message.length !==0)
+					{
+						message = message.concat('의 불이 켜져있습니다.');
+					}
+					else
+					{
+						message = message.concat('모든 불이 꺼져있습니다.');
+					}
+				
+					app.sendMessage(message);
+				
+				/*listElement = this.templateManager.get('left_bubble', {
+					'text': text
+				});
+				ul = $('#chat-content > .ui-scrollview-view > ul');
+				ul.append(listElement);
+				ul.listview('refresh');*/
+            } //현재 상태 불러오기
+			
+			
+			}
         },
 
         /**
